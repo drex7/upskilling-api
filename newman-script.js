@@ -1,16 +1,18 @@
 const newman = require("newman"); // require Newman in your project
 
-
+const folderName = process.argv[2];
+const dataFile = process.argv[3];
 
 // call newman.run to pass the `options` object and wait for callback
 newman
   .run({
     collection: require("./api_postman_collection.json"),
-    environment: require("./env.json"),
+    environment: require("./collection-files/env.json"),
     reporters: ["htmlextra"],
     workingDir: "./collection-files",
+    iterationData: dataFile,
     environment: "env.json",
-    folder: "",
+    folder: folder,
     reporter: {
       htmlextra: {
         export: "./report.html",
