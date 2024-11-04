@@ -1,27 +1,21 @@
 ### How to run tests
-```console
-$ newman run ./collection.json --folder Login Tests
-```
 
 #### Run data-driven tests
 ```console
-$ node newman-script.js "Data-Driven User Creation" "user_data.csv"
-newman run ./api_postman_collection.json --folder "Data-Driven User Creation" 
+$ node newman-script.js "user_creation"
 ```
 
 #### Run conditional workflow tests
 ```console
-$ node newman-script.js "Conditional Workflow" ""
-$ newman run ./api_postman_collection.json --folder "Data-Driven User Creation" 
+$ node newman-script.js "conditional_workflow" 
 ```
 
 #### Run login test
 ```console
-$ node newman-scripts.js "Login tests" "login_data.csv"
-$ newman run ./collection.json -n 65 --folder "Error Handling" 
+$ node newman-scripts.js "login_tests"
 ``` 
 
 #### Run rate limiting tests
 ```console
-$ newman run ./api_postman_collection.json -n 65 --folder "Error Handling" --environment 
+$ node newman-scripts.js "rate_limiting"
 ``` 

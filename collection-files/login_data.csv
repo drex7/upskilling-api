@@ -1,6 +1,7 @@
-email,username,password,status_code,error_nessage
-george.bluth@reqres.in,,opoi,200,
-george.bluth@reqres.in,," ",200,
-george.bluth@reqres.in,,"",400,Missing password
-georg.bluth@reqres.in,,"",400,user not found
-georg.bluth@reqres.in,,"",400,Missing email or username
+email,username,password,error_nessage
+"george.bluth@reqres.in","","","Missing password"
+"georg.bluth@reqres.in","","password","user not found"
+"george.bluth@reqres.in","  ","p@ssword","user not found"
+"george.bluth@reqres.in","george.bluth@reqres.i","p@ssword","user not found"
+"","","","Missing email or username"
+"george.bluth@reqres.i","george.bluth@reqres.i","","Missing password"

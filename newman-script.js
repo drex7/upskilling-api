@@ -1,18 +1,45 @@
 const newman = require("newman"); // require Newman in your project
 
-const folderName = process.argv[2];
-const dataFile = process.argv[3];
+const testsToRun = process.argv[2];
+let testOptions = {};
+
+switch (testsToRun) {
+  case "login_tests":
+    testOptions = {
+      iterationData: "./collection-files/login_data.csv",
+      folder: "Login Tests",
+    };
+    break;
+  case "rate_limiting":
+    testOptions = {
+      iterationCount: 65,
+      folder: "Rate Limiting",
+    };
+    break;
+  case "conditional_workflow":
+    testOptions = {
+      folder: "Conditional Workflow",
+    };
+    break;
+    case "user_creation":
+      testOptions = {
+        iterationData: "./collection-files/user_data.csv",
+      folder: "Data-Driven User Creation Workflow",
+    };
+    break;
+  default:
+    break;
+}
 
 // call newman.run to pass the `options` object and wait for callback
 newman
   .run({
-    collection: require("./api_postman_collection.json"),
+    collection: require("./postman_collection.json"),
     environment: require("./collection-files/env.json"),
     reporters: ["htmlextra"],
-    workingDir: "./collection-files",
-    iterationData: dataFile,
-    environment: "env.json",
-    folder: folder,
+    ...testOptions,
+    workingDir: "collection-files",
+    environment: "./collection-files/env.json",
     reporter: {
       htmlextra: {
         export: "./report.html",
