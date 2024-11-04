@@ -317,8 +317,9 @@
 									"const token = pm.environment.get(\"token\");\r",
 									"\r",
 									"if(token !== undefined) {\r",
-									"    pm.execution.setNextRequest(null);\r",
-									"}"
+									"    pm.execution.setNextRequest(\"Create User\");\r",
+									"}\r",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
